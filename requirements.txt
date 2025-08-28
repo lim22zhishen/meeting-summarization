@@ -1,0 +1,11 @@
+streamlit
+faster-whisper
+transformers
+torch
+pydub
+sentencepiece
+pipwin
+pyaudio
+soundfile
+audioop-lts
+pyannote.audio
