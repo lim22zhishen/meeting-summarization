@@ -5,7 +5,7 @@ from pydub import AudioSegment
 import torch
 import tempfile
 import os
-
+from io import BytesIO
 # PyAnnote imports
 from pyannote.audio import Pipeline
 from dotenv import load_dotenv
@@ -49,9 +49,8 @@ if uploaded_file:
                     input_temp.write(audio_data)
                     input_temp.flush()
                     
-                    audio = AudioSegment.from_file(input_temp.name)
+                    audio = AudioSegment.from_file(BytesIO(audio_data))
                     audio.export(temp_path, format="wav")
-                    os.unlink(input_temp.name)
 
             # 1️⃣ Speaker Diarization
             st.info("🔍 Performing speaker diarization...")
