@@ -24,7 +24,11 @@ if not hf_token:
     st.stop()
 
 # Upload audio
-uploaded_file = st.file_uploader("Upload audio", type=["mp3", "wav", "m4a"])
+uploaded_file = st.file_uploader(
+    "Upload audio", 
+    type=["mp3", "wav", "m4a", "ogg", "opus"]
+)
+
 target_lang = st.selectbox("Target language for summary", ["English", "Chinese"])
 
 if uploaded_file:
